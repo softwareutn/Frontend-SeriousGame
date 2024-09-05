@@ -28,7 +28,7 @@ const LateralNavbar = ({ isOpen, toggleSidebar }) => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "https://back-serious-game.vercel.app/api/auth/perfil",
+          "https://backend-serious-game.vercel.app/api/auth/perfil",
           {
             headers: {
               Authorization: `Bearer ${token}`,

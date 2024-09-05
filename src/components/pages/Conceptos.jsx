@@ -66,11 +66,11 @@ const Conceptos = () => {
     searchEstado = ""
   ) => {
     const token = localStorage.getItem("token");
-    let url = "https://back-serious-game.vercel.app/api/getconceptos/";
+    let url = "https://backend-serious-game.vercel.app/api/getconceptos/";
     let params = {};
 
     if (searchEstado !== "") {
-      url = "https://back-serious-game.vercel.app/api/search/state";
+      url = "https://backend-serious-game.vercel.app/api/search/state";
       params = { estado: searchEstado };
     } else {
       params = {
@@ -97,7 +97,7 @@ const Conceptos = () => {
     const token = localStorage.getItem("token");
     try {
       const { data } = await axios.get(
-        "https://back-serious-game.vercel.app/api/categorias",
+        "https://backend-serious-game.vercel.app/api/categorias",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -114,7 +114,7 @@ const Conceptos = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.delete(
-        `https://back-serious-game.vercel.app/api/deleteconceptos/${conceptoToDelete}`,
+        `https://backend-serious-game.vercel.app/api/deleteconceptos/${conceptoToDelete}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -217,8 +217,8 @@ const Conceptos = () => {
 
     const method = currentConcepto.concepto_id ? "put" : "post";
     const url = currentConcepto.concepto_id
-      ? `https://back-serious-game.vercel.app/api/edit/${currentConcepto.concepto_id}`
-      : "https://back-serious-game.vercel.app/api/postconceptos/";
+      ? `https://backend-serious-game.vercel.app/api/edit/${currentConcepto.concepto_id}`
+      : "https://backend-serious-game.vercel.app/api/postconceptos/";
 
     try {
       const response = await axios({
@@ -287,8 +287,8 @@ const Conceptos = () => {
     try {
       const method = currentPregunta.pregunta_id ? "put" : "post";
       const url = currentPregunta.pregunta_id
-        ? `https://back-serious-game.vercel.app/api/preguntas/${currentPregunta.pregunta_id}`
-        : "https://back-serious-game.vercel.app/api/preguntas";
+        ? `https://backend-serious-game.vercel.app/api/preguntas/${currentPregunta.pregunta_id}`
+        : "https://backend-serious-game.vercel.app/api/preguntas";
 
       await axios({
         method: method,
@@ -325,7 +325,7 @@ const Conceptos = () => {
     const updatedConcepto = { ...concepto, estado: !concepto.estado };
     try {
       const response = await axios.put(
-        `https://back-serious-game.vercel.app/api/edit/${concepto.concepto_id}`,
+        `https://backend-serious-game.vercel.app/api/edit/${concepto.concepto_id}`,
         updatedConcepto,
         {
           headers: {
@@ -520,7 +520,7 @@ const Conceptos = () => {
                         <td>
                           {concepto.imagen ? (
                             <img
-                              src={`https://back-serious-game.vercel.app/src/uploads/${concepto.imagen}`}
+                              src={`https://backend-serious-game.vercel.app/src/uploads/${concepto.imagen}`}
                               alt="Concepto"
                               className="concepto-imagen"
                             />
@@ -650,7 +650,7 @@ const Conceptos = () => {
                   !(currentConcepto.imagen instanceof File) && (
                     <div className="mt-3">
                       <img
-                        src={`https://back-serious-game.vercel.app/src/uploads/${currentConcepto.imagen}`}
+                        src={`https://backend-serious-game.vercel.app/src/uploads/${currentConcepto.imagen}`}
                         alt="Concepto"
                         className="concepto-imagen"
                       />

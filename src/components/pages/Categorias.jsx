@@ -36,7 +36,7 @@ const Categorias = () => {
   const fetchCategorias = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("https://back-serious-game.vercel.app/api/categorias", {
+      const response = await axios.get("https://backend-serious-game.vercel.app/api/categorias", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -50,7 +50,7 @@ const Categorias = () => {
   const fetchTiposEjercicios = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("https://back-serious-game.vercel.app/api/tipo_ejercicios", {
+      const response = await axios.get("https://backend-serious-game.vercel.app/api/tipo_ejercicios", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -64,7 +64,7 @@ const Categorias = () => {
   const handleAddCategoria = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.post("https://back-serious-game.vercel.app/api/categorias", {
+      await axios.post("https://backend-serious-game.vercel.app/api/categorias", {
         nombre_categoria: newCategoria,
       }, {
         headers: {
@@ -82,7 +82,7 @@ const Categorias = () => {
   const handleAddTipoEjercicio = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.post("https://back-serious-game.vercel.app/api/tipo_ejercicios", {
+      await axios.post("https://backend-serious-game.vercel.app/api/tipo_ejercicios", {
         nombre_tipo: newTipoEjercicio,
       }, {
         headers: {
@@ -100,7 +100,7 @@ const Categorias = () => {
   const handleDeleteCategoria = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://back-serious-game.vercel.app/api/categorias/${id}`, {
+      await axios.delete(`https://backend-serious-game.vercel.app/api/categorias/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -114,7 +114,7 @@ const Categorias = () => {
   const handleDeleteTipoEjercicio = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://back-serious-game.vercel.app/api/tipo_ejercicios/${id}`, {
+      await axios.delete(`https://backend-serious-game.vercel.app/api/tipo_ejercicios/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -128,7 +128,7 @@ const Categorias = () => {
   const handleUpdateCategoria = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`https://back-serious-game.vercel.app/api/categorias/${editCategoria.categoria_id}`, {
+      await axios.put(`https://backend-serious-game.vercel.app/api/categorias/${editCategoria.categoria_id}`, {
         nombre_categoria: editCategoria.nombre_categoria,
       }, {
         headers: {
@@ -146,7 +146,7 @@ const Categorias = () => {
   const handleUpdateTipoEjercicio = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`https://back-serious-game.vercel.app/api/tipo_ejercicios/${editTipoEjercicio.tipo_id}`, {
+      await axios.put(`https://backend-serious-game.vercel.app/api/tipo_ejercicios/${editTipoEjercicio.tipo_id}`, {
         nombre_tipo: editTipoEjercicio.nombre_tipo,
       }, {
         headers: {

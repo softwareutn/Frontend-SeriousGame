@@ -16,7 +16,7 @@ const UserAdd = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "https://back-serious-game.vercel.app/api/auth/signup",
+        "https://backend-serious-game.vercel.app/api/auth/signup",
         {
           nombre,
           email,

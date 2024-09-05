@@ -38,7 +38,7 @@ const Usuarios = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "https://back-serious-game.vercel.app/api/searchusers",
+        "https://backend-serious-game.vercel.app/api/searchusers",
         {
           params: { nombre: searchQuery, rol: searchRol },
           headers: {
@@ -63,7 +63,7 @@ const Usuarios = () => {
       try {
         const token = localStorage.getItem("token");
         await axios.delete(
-          `https://back-serious-game.vercel.app/api/deleteusers/${userId}`,
+          `https://backend-serious-game.vercel.app/api/deleteusers/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -84,7 +84,7 @@ const Usuarios = () => {
       const token = localStorage.getItem("token");
       if (modalType === "edit") {
         await axios.put(
-          `https://back-serious-game.vercel.app/api/putusers/${currentUser.usuario_id}`,
+          `https://backend-serious-game.vercel.app/api/putusers/${currentUser.usuario_id}`,
           currentUser,
           {
             headers: {
@@ -94,7 +94,7 @@ const Usuarios = () => {
         );
       } else {
         await axios.post(
-          "https://back-serious-game.vercel.app/api/auth/signup",
+          "https://backend-serious-game.vercel.app/api/auth/signup",
           currentUser,
           {
             headers: {

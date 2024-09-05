@@ -26,15 +26,15 @@ const usePreguntas = () => {
 
   const fetchPreguntas = useCallback(async () => {
     try {
-      let url = "https://back-serious-game.vercel.app/api/preguntas/obtener";
+      let url = "https://backend-serious-game.vercel.app/api/preguntas/obtener";
       if (filter) {
-        url = `https://back-serious-game.vercel.app/api/evaluaciones/preguntas/${filter}`;
+        url = `https://backend-serious-game.vercel.app/api/evaluaciones/preguntas/${filter}`;
       }
       if (stateFilter) {
-        url = `https://back-serious-game.vercel.app/api/evaluaciones/activos?estado=${stateFilter}`;
+        url = `https://backend-serious-game.vercel.app/api/evaluaciones/activos?estado=${stateFilter}`;
       }
       if (searchQuery) {
-        url = `https://back-serious-game.vercel.app/api/search/${encodeURIComponent(
+        url = `https://backend-serious-game.vercel.app/api/search/${encodeURIComponent(
           searchQuery
         )}`;
       }
@@ -106,7 +106,7 @@ const Evaluacion = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "https://back-serious-game.vercel.app/api/getconceptos/",
+        "https://backend-serious-game.vercel.app/api/getconceptos/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -123,7 +123,7 @@ const Evaluacion = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "https://back-serious-game.vercel.app/api/getejercicios/",
+        "https://backend-serious-game.vercel.app/api/getejercicios/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -212,8 +212,8 @@ const Evaluacion = () => {
     try {
       const method = currentPregunta.pregunta_id ? "put" : "post";
       const url = currentPregunta.pregunta_id
-        ? `https://back-serious-game.vercel.app/api/preguntas/${currentPregunta.pregunta_id}`
-        : "https://back-serious-game.vercel.app/api/preguntas";
+        ? `https://backend-serious-game.vercel.app/api/preguntas/${currentPregunta.pregunta_id}`
+        : "https://backend-serious-game.vercel.app/api/preguntas";
 
       const token = localStorage.getItem("token");
       await axios({
@@ -249,7 +249,7 @@ const Evaluacion = () => {
       try {
         const token = localStorage.getItem("token");
         await axios.delete(
-          `https://back-serious-game.vercel.app/api/preguntas/${preguntaToDelete}`,
+          `https://backend-serious-game.vercel.app/api/preguntas/${preguntaToDelete}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -295,7 +295,7 @@ const Evaluacion = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `https://back-serious-game.vercel.app/api/preguntas/${pregunta.pregunta_id}`,
+        `https://backend-serious-game.vercel.app/api/preguntas/${pregunta.pregunta_id}`,
         {
           ...updatedPregunta,
           concepto_id: updatedPregunta.concepto_id || null,
@@ -647,7 +647,7 @@ const Evaluacion = () => {
                       <td>
                         {pregunta.imagen && (
                           <img
-                            src={`https://back-serious-game.vercel.app/src/uploads/${pregunta.imagen}`}
+                            src={`https://backend-serious-game.vercel.app/src/uploads/${pregunta.imagen}`}
                             alt={pregunta.texto_pregunta}
                             className="pregunta-imagen"
                             style={{ maxWidth: "100px", maxHeight: "100px" }}
